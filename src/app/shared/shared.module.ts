@@ -13,6 +13,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { NavbarComponent } from './navbar/navbar.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 const MaterialModules = [
   MatToolbarModule,
@@ -23,11 +25,11 @@ const MaterialModules = [
   MatListModule
 ];
 
-const CoreModules = [FormsModule, FlexLayoutModule];
+const CoreModules = [FormsModule, FlexLayoutModule, LayoutModule, RouterModule];
 
 @NgModule({
-  declarations: [SideMenuComponent],
-  imports: [CommonModule, MaterialModules, CoreModules, RouterModule],
-  exports: [SideMenuComponent, MaterialModules, CoreModules]
+  declarations: [SideMenuComponent, NavbarComponent],
+  imports: [CommonModule, MaterialModules, CoreModules],
+  exports: [SideMenuComponent, MaterialModules, CoreModules, NavbarComponent]
 })
 export class SharedModule {}

@@ -1,22 +1,15 @@
-<mat-sidenav-container class="main-container">
+<mat-sidenav-container class="sidenav-container">
   <mat-sidenav
     #sidenav
-    mode="side"
-    [(opened)]="opened"
-    (opened)="events.push('open!')"
-    (closed)="events.push('close!')"
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
   >
     <app-side-menu></app-side-menu>
   </mat-sidenav>
-
   <mat-sidenav-content>
-    <mat-toolbar color="accent">
-      <button mat-icon-button color="primary" (click)="sidenav.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <img src="../assets/logo-neocratia.png" class="logo" />
-      <div fxFlex></div>
-      <img src="../assets/ng-bolivia.png" class="logo-square" />
-    </mat-toolbar>
+    <app-navbar (toggleMenu)="sidenav.toggle()"></app-navbar>
   </mat-sidenav-content>
 </mat-sidenav-container>

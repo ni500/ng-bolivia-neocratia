@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { Observable } from 'rxjs';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { map, share } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +11,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'ng-bolivia-neocratia';
   events: string[] = [];
-  opened: boolean;
+  isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches),
+      share()
+    );
+  constructor(private breakpointObserver: BreakpointObserver) {}
 }
