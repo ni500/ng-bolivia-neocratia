@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class SideMenuComponent implements OnInit {
+  menuItems = [
+    {
+      name: 'Congreso',
+      url: 'congreso',
+      icon: 'profile'
+    },
+    {
+      name: 'Decisiones',
+      url: 'decisiones',
+      icon: 'hot_to_vote'
+    }
+  ];
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
