@@ -15,6 +15,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 const MaterialModules = [
   MatToolbarModule,
@@ -28,8 +30,8 @@ const MaterialModules = [
 const CoreModules = [FormsModule, FlexLayoutModule, LayoutModule, RouterModule];
 
 @NgModule({
-  declarations: [SideMenuComponent, NavbarComponent],
+  declarations: [SideMenuComponent, NavbarComponent, PageNotFoundComponent, HomePageComponent],
   imports: [CommonModule, MaterialModules, CoreModules],
-  exports: [SideMenuComponent, MaterialModules, CoreModules, NavbarComponent]
+  exports: [SideMenuComponent, MaterialModules, CoreModules, NavbarComponent, PageNotFoundComponent, HomePageComponent]
 })
 export class SharedModule {}

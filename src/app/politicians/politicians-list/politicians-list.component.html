@@ -1,0 +1,18 @@
+<mat-list>
+  <mat-list-item
+    *ngFor="let politician of politicians"
+    [routerLink]="['/politicos/', politician.id]"
+  >
+    <span matLine ngClass="mat-boody-1"> {{ politician.name }} </span>
+    <span matLine ngClass="mat-caption"
+      ><strong>Id:</strong> {{ politician.id }}
+    </span>
+    <a
+      mat-mini-fab
+      [routerLink]="['/politicos/', politician.id]"
+      color="primary"
+    >
+      <mat-icon>account_circle</mat-icon>
+    </a>
+  </mat-list-item>
+</mat-list>

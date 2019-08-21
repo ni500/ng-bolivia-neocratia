@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ActiviststRoutingModule } from './activistst-routing.module';
+import { ActiviststRoutingModule } from './activists-routing.module';
 
 
 @NgModule({
