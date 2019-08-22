@@ -1,1 +1,25 @@
-<p>decisions-list works!</p>
+<div class="pad">
+  <span ngClass="mat-title"> Decisiones </span>
+  <mat-list>
+    <mat-list-item
+      *ngFor="let decision of decisions$"
+      [routerLink]="['/decisiones/', decision.id]"
+    >
+      <span matLine ngClass="mat-boody-1"> {{ decision.title }} </span>
+      <span matLine ngClass="mat-boody-1">
+        Creada: {{ decision.dateCreated | date }}
+      </span>
+      <a
+        mat-mini-fab
+        [routerLink]="['/decisiones/', decision.key]"
+        color="primary"
+      >
+        <mat-icon>how_to_vote</mat-icon>
+      </a>
+    </mat-list-item>
+  </mat-list>
+
+  <button mat-raised-button color="primary" routerLink="create">
+    CREAR DECISIÓN
+  </button>
+</div>

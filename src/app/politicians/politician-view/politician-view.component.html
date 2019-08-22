@@ -1,4 +1,23 @@
-<a [routerLink]="['/politicos']">
-  Atrás
-</a>
-<p>politician-view works! ID: {{ politicianId | async }}</p>
+<div class="pad" fxLayout="column">
+  <a [routerLink]="['/politicos']">
+    Atrás
+  </a>
+  <span ngClass="mat-title" *ngIf="politician">
+    {{ politician.name }}
+  </span>
+  <mat-list>
+    <mat-list-item *ngFor="let decision of decisions$">
+      <span matLine ngClass="mat-boody-1"> {{ decision.title }} </span>
+      <span matLine ngClass="mat-boody-1"> {{ decision.description }} </span>
+      <span matLine ngClass="mat-boody-1" *ngIf="politicianVotes">
+        Voto: {{ findVote(decision.key) }}
+      </span>
+      <span matLine>
+        <app-change-vote
+          [decisionId]="decision.key"
+          [politicianId]="politicianId"
+        ></app-change-vote>
+      </span>
+    </mat-list-item>
+  </mat-list>
+</div>

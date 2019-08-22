@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { DecisionsModule } from './decisions/decisions.module';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from './../environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +20,7 @@ import { environment } from './../environments/environment';
     SharedModule,
     BrowserAnimationsModule,
     DecisionsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]

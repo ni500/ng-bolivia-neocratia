@@ -1,0 +1,10 @@
+<mat-form-field>
+  <mat-label>Cambiar voto</mat-label>
+  <mat-select [(value)]="newVote">
+    <mat-option value="Si">Si</mat-option>
+    <mat-option value="No">No</mat-option>
+  </mat-select>
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="setNewVote()">
+  CAMBIAR
+</button>

@@ -7,16 +7,22 @@ import {
   MatCheckboxModule,
   MatIconModule,
   MatButtonModule,
-  MatListModule
+  MatListModule,
+  MatFormFieldModule,
+  MatSelectModule,
+  MatOptionModule,
+  MatInputModule,
+  MatExpansionModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 const MaterialModules = [
   MatToolbarModule,
@@ -24,10 +30,22 @@ const MaterialModules = [
   MatCheckboxModule,
   MatIconModule,
   MatButtonModule,
-  MatListModule
+  MatListModule,
+  MatFormFieldModule,
+  MatSelectModule,
+  MatOptionModule,
+  MatInputModule,
+  MatExpansionModule
 ];
 
-const CoreModules = [FormsModule, FlexLayoutModule, LayoutModule, RouterModule];
+const CoreModules = [
+  FormsModule,
+  ReactiveFormsModule,
+  FlexLayoutModule,
+  LayoutModule,
+  RouterModule,
+  AngularFirestoreModule
+];
 
 @NgModule({
   declarations: [

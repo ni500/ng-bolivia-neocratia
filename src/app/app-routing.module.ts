@@ -4,6 +4,7 @@ import { DecisionsListComponent } from './decisions/decisions-list/decisions-lis
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { HomePageComponent } from './shared/home-page/home-page.component';
 import { DecisionViewComponent } from './decisions/decision-view/decision-view.component';
+import { AddDecisionComponent } from './decisions/add-decision/add-decision.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: 'decisiones',
     component: DecisionsListComponent
+  },
+  {
+    path: 'decisiones/create',
+    component: AddDecisionComponent
   },
   {
     path: 'decisiones/:id',

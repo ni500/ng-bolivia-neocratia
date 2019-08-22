@@ -1,0 +1,23 @@
+<div class="pad">
+    <span ngClass="mat-title"> Crear nueva decisión </span>
+    <form [formGroup]="newDecisionForm">
+      <div fxLayout="column">
+        <mat-form-field>
+          <mat-label>Título</mat-label>
+          <input matInput formControlName="title" required />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Descripción</mat-label>
+            <input matInput formControlName="description" required />
+          </mat-form-field>
+      </div>
+    </form>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="addNewDecision()"
+      [disabled]="!newDecisionForm.valid"
+    >
+      CREAR
+    </button>
+  </div>

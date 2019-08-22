@@ -1,0 +1,27 @@
+<div class="pad">
+  <span ngClass="mat-title"> Crear nuevo político </span>
+  <form [formGroup]="newPoliticianForm">
+    <div fxLayout="column">
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="name" required />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Partido Político</mat-label>
+        <mat-select formControlName="party" required>
+          <mat-option *ngFor="let party of parties" [value]="party">
+            {{ party }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="addNewPolitician()"
+    [disabled]="!newPoliticianForm.valid"
+  >
+    CREAR
+  </button>
+</div>

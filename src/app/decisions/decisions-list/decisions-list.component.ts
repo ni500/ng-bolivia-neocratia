@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { DecisionsService } from '../decisions.service';
 
 @Component({
   selector: 'app-decisions-list',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class DecisionsListComponent implements OnInit {
-
-  constructor() { }
+  decisions$: Observable<[]>;
+  constructor(private decisionsService: DecisionsService) {}
 
   ngOnInit() {
+    this.decisionsService.getAllDecisions().subscribe((decisions: any) => {
+      this.decisions$ = decisions;
+    });
   }
-
 }
