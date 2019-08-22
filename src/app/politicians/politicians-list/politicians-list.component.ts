@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PoliticiansService } from '../politicians.service';
 import { Observable, Subscription } from 'rxjs';
+import { AuthService } from 'src/app/core/auth.service';
 
 @Component({
   selector: 'app-politicians-list',
@@ -10,7 +11,10 @@ import { Observable, Subscription } from 'rxjs';
 export class PoliticiansListComponent implements OnInit, OnDestroy {
   politicians$: Observable<[]>;
   subs = new Subscription();
-  constructor(private politiciansService: PoliticiansService) {}
+  constructor(
+    private politiciansService: PoliticiansService,
+    public authService: AuthService
+  ) {}
 
   ngOnInit() {
     this.subs.add(

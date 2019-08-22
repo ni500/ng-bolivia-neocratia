@@ -1,1 +1,68 @@
-<p>home-page works!</p>
+<div *ngIf="authService.user | async; then authenticated; else guest"></div>
+
+<ng-template #guest>
+  <div class="pad">
+    <span ngClass="mat-title">Bienvenido a Neocratia Bolivia</span>
+    <br />
+    <span ngClass="mat-body-1"
+      >Una herramienta para apoyar nuestra democracia.
+      <br />
+    </span>
+    <br />
+    <br />
+    <span ngClass="mat-subheading-2">Inicia sesión para empezar</span><br />
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="authService.googleLogin()"
+      class="pad full-width"
+    >
+      Entra con Google
+    </button>
+    <div>
+      <span ngClass="mat-body-1"> O ingresa con tu correo y contraseña </span>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput [(value)]="email" required />
+      </mat-form-field>
+      <mat-form-field class="ml-4">
+        <mat-label>Contraseña</mat-label>
+        <input matInput [(value)]="password" required />
+      </mat-form-field>
+      <div>
+        <button
+          mat-raised-button
+          color="accent"
+          (click)="authService.emailLogin(email, password)"
+          class="pad full-width"
+        >
+          Ingresar a tu cuenta
+        </button>
+        <button
+          mat-raised-button
+          color="accent"
+          (click)="authService.emailSignUp(email, password)"
+          class="ml-4"
+        >
+          Crear nueva cuenta
+        </button>
+      </div>
+      <div></div>
+    </div>
+
+    <a href="https://neocratia.org" target="_blank" ngClass="mat-subheading-2">
+      Join the tech-political activism on Neocratia</a
+    >
+  </div>
+</ng-template>
+
+<ng-template #authenticated>
+  <div class="pad">
+    Usuario logueado
+    <button mat-raised-button color="accent" (click)="authService.signOut()">
+      Cerrar sesión
+    </button>
+  </div>
+</ng-template>
