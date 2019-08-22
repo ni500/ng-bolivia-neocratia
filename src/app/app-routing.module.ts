@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DecisionsListComponent } from './decisions/decisions-list/decisions-list.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { HomePageComponent } from './shared/home-page/home-page.component';
+import { DecisionViewComponent } from './decisions/decision-view/decision-view.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'decisiones',
     component: DecisionsListComponent
+  },
+  {
+    path: 'decisiones/:id',
+    component: DecisionViewComponent
   },
   {
     path: 'page-not-found',

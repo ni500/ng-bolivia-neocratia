@@ -14,7 +14,7 @@ export class PoliticianViewComponent implements OnInit {
 
   ngOnInit() {
     this.politicianId = this.route.paramMap.pipe(
-      map(params => params.get('id') || 'None')
+      map(params => params.get('id') || 'Ningún político enocntrado')
     );
   }
 }

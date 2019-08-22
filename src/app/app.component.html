@@ -7,10 +7,13 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="(isHandset$ | async) === false"
   >
-    <app-side-menu></app-side-menu>
+    <app-sidenav></app-sidenav>
   </mat-sidenav>
+
   <mat-sidenav-content>
-    <app-navbar (toggleMenu)="sidenav.toggle()"></app-navbar>
+    <app-toolbar (toggleMenu)="sidenav.toggle()"></app-toolbar>
+
     <router-outlet></router-outlet>
+
   </mat-sidenav-content>
 </mat-sidenav-container>
